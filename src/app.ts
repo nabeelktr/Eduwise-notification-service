@@ -1,7 +1,8 @@
 import express, { Application } from 'express';
 import env from 'dotenv';
 import actionCode from './events/consumer/user.consumer';
-
+import RabbitMQClient from './events/rabbitmq/client'
+import { connectDB } from './config/mongodb.config';
 
 class nodeApp {
   public app: Application
@@ -12,6 +13,8 @@ class nodeApp {
     env.config()
     this.initialiseMiddleware()
     this.messageConsumers()
+    RabbitMQClient.initialize();
+    connectDB()
   }
 
   private initialiseMiddleware(): void {

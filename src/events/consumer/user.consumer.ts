@@ -1,8 +1,12 @@
 import * as amqp from 'amqplib'
 import 'dotenv/config'
 import { NotificationController } from '../../controller/notification.controller'
+import { NotificationRepository } from '../../repository/notification.repository'
+import { NotificationService } from '../../services/notification.service'
 
-const controller = new NotificationController()
+const repository = new NotificationRepository()
+const service = new NotificationService(repository)
+const controller = new NotificationController(service)
 
 
 const Url = String(process.env.RabbitMQ_Link)
