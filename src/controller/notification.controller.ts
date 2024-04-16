@@ -33,9 +33,17 @@ export class NotificationController {
     }
   };
 
-  getNotifications = (data: any) => {
+  getNotifications = (data: string) => {
     try{
       return this.service.getNotifications(data)
+    }catch(e:any){
+      console.log(e);
+    }
+  }
+
+  updateNotification = (data: string) => {
+    try{
+      return this.service.updateStatus(data)
     }catch(e:any){
       console.log(e);
     }

@@ -25,7 +25,12 @@ export class NotificationRepository implements INotificationRepository {
     }
   }
 
-  updateStatus(id: string, status: string): Promise<Object | null> {
-    throw new Error("Method not implemented.");
+  async updateStatus(id: string): Promise<Object | null> {
+    try {
+        const notification = await NotificationModel.findByIdAndUpdate(id, {status: "read"});
+        return { success: true };
+      } catch (e: any) {
+        throw new DBConnectionError();
+      }
   }
 }

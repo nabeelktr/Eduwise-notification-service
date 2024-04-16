@@ -22,8 +22,13 @@ export default class MessageHandler {
       case "create-notification":
         response = await controller.createNotification.bind(controller)(data);
         break;
+
       case "get-all-notifications":
         response = await controller.getNotifications.bind(controller)(data);
+        break;
+
+      case "update-notification":
+        response = await controller.updateNotification.bind(controller)(data);
         break;
 
       default:

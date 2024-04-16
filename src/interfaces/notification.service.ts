@@ -5,6 +5,6 @@ export interface INotificationService {
     getNotifications(data: any): unknown;
 
     createNotification(data: Notification): Promise<Object | null>;
-    updateStatus(id:string, status:string): Promise<Object | null>;
+    updateStatus(id:string): Promise<Object | null>;
     
 }

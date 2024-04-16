@@ -11,7 +11,7 @@ export class NotificationService implements INotificationService {
   createNotification(data: Notification): Promise<Object | null> {
     return this.repository.createNotification(data);
   }
-  updateStatus(id: string, status: string): Promise<Object | null> {
-    throw new Error("Method not implemented.");
+  updateStatus(id: string): Promise<Object | null> {
+    return this.repository.updateStatus(id);
   }
 }
